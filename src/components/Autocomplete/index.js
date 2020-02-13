@@ -1,28 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./autocomplete.scss";
-const initialSuggestions = [
-  "David",
-  "Damien",
-  "Davidds",
-  "Damienfef",
-  "sarah",
-  "jane",
-  "vncjd",
-  "Ajdjd",
-  "jdj",
-  "ksldl",
-  "mmdk",
-  "xnsa",
-  "ljjk",
-  "farm",
-  "great",
-  "awesome",
-  "book",
-  "cat",
-  "cow",
-  "onion"
-];
+import initialSuggestions from '../../mockdata/initialSuggestions';
 const AutoComplete = ({searchValue}) => {
   const [value, setValue] = useState(() => searchValue || "");
   const [suggestions, setSuggestions] = useState([]);
@@ -45,6 +24,28 @@ const AutoComplete = ({searchValue}) => {
     setSuggestions([]);
     history.push(`/${suggestion}`);
   };
+  const renderDropDown = () => {
+    if(suggestions.length === 0) {
+      return null;
+    }
+    return (
+       <ul className="suggestions">
+       {
+         suggestions.map((suggestion, i) => {
+           return <li
+            key={`${suggestions}-${i}`}
+            className="suggestions__item"
+            onClick={() => handleSelectedSuggestions(suggestion)}
+          >
+            {suggestion}
+          </li>
+         })
+         
+       }
+      </ul>
+    )
+
+  }
   return (
     <div className="autocomplete ">
       <div className="input-wrapper">
@@ -59,17 +60,10 @@ const AutoComplete = ({searchValue}) => {
         </svg>
         <img src="/michrophone.png" alt="" className="michrophone" />
       </div>
-      <ul className="suggestions">
-        {suggestions.map((suggestion, i) => (
-          <li
-            key={`${suggestions}-${i}`}
-            className="suggestions__item"
-            onClick={() => handleSelectedSuggestions(suggestion)}
-          >
-            {suggestion}
-          </li>
-        ))}
-      </ul>
+      
+     
+        {renderDropDown()}
+    
     </div>
   );
 };
