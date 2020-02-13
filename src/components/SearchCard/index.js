@@ -3,7 +3,7 @@
 import React from "react";
 import "./searchcard.scss";
 const SearchCard = ({data}) => {
-  const { source, title, author, description, tags, link, source_short_name, short_title} = data;
+  const { source, title, description, tags, link, source_short_name, short_title} = data;
   return (
     <div className="search-card">
       <p>
