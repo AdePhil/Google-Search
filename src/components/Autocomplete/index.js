@@ -7,10 +7,24 @@ const initialSuggestions = [
   "Davidds",
   "Damienfef",
   "sarah",
-  "jane"
+  "jane",
+  "vncjd",
+  "Ajdjd",
+  "jdj",
+  "ksldl",
+  "mmdk",
+  "xnsa",
+  "ljjk",
+  "farm",
+  "great",
+  "awesome",
+  "book",
+  "cat",
+  "cow",
+  "onion"
 ];
-const AutoComplete = () => {
-  const [value, setValue] = useState("");
+const AutoComplete = ({searchValue}) => {
+  const [value, setValue] = useState(() => searchValue || "");
   const [suggestions, setSuggestions] = useState([]);
   let history = useHistory();
 
@@ -21,7 +35,6 @@ const AutoComplete = () => {
     if (value.trim()) {
       const regex = new RegExp(`^${value}`, "i");
       suggestions = initialSuggestions
-        .sort()
         .filter(suggestion => regex.test(suggestion));
     }
 

@@ -6,7 +6,10 @@ import ThumbNail from "../../components/ThumbNail/";
 import results from "../../mockdata/results";
 import "./searchpage.scss";
 import SearchCard from "../../components/SearchCard";
-const SearchPage = () => {
+import { useParams } from "react-router";
+const SearchPage = ({match}) => {
+  const { searchValue } = match.params;
+  console.log(searchValue);
   const renderOtherResults = () => {
     const { others } = results;
     return others.map(result => {
@@ -23,7 +26,7 @@ const SearchPage = () => {
           <img src="./logo.png" alt="Logo" className="logo" />
         </a>
         <div className="autocomplete">
-          <AutoComplete />
+          <AutoComplete searchValue={searchValue} />
         </div>
         <nav className="search__nav">
           <div className="app-icon search__nav-item"></div>
