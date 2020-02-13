@@ -20,7 +20,7 @@ const SearchPage = () => {
     <div className="search__details">
       <header className="search__details-header">
         <a href="#">
-          <img src="/logo.png" alt="Logo" className="logo" />
+          <img src="./logo.png" alt="Logo" className="logo" />
         </a>
         <div className="autocomplete">
           <AutoComplete />
