@@ -3,9 +3,19 @@
 import React from "react";
 import AutoComplete from "../../components/Autocomplete";
 import ThumbNail from "../../components/ThumbNail/";
+import results from "../../mockdata/results";
 import "./searchpage.scss";
 import SearchCard from "../../components/SearchCard";
 const SearchPage = () => {
+  const renderOtherResults = () => {
+    const { others } = results;
+    return others.map(result => {
+      if(result && result.type === 'video'){
+        return <ThumbNail key={result.id} data={result}/>
+      }
+      return <SearchCard key={result.id} data={result} />
+    })
+  }
   return (
     <div className="search__details">
       <header className="search__details-header">
@@ -58,8 +68,7 @@ const SearchPage = () => {
         {/* <p>More for hello</p> */}
       </div>
       <div className="container search__details__results">
-        <ThumbNail />
-        <SearchCard />
+          {renderOtherResults()}
       </div>
     </div>
   );
