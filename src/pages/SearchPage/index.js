@@ -1,0 +1,68 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
+import React from "react";
+import AutoComplete from "../../components/Autocomplete";
+import ThumbNail from "../../components/ThumbNail/";
+import "./searchpage.scss";
+import SearchCard from "../../components/SearchCard";
+const SearchPage = () => {
+  return (
+    <div className="search__details">
+      <header className="search__details-header">
+        <a href="#">
+          <img src="/logo.png" alt="Logo" className="logo" />
+        </a>
+        <div className="autocomplete">
+          <AutoComplete />
+        </div>
+        <nav className="search__nav">
+          <div className="app-icon search__nav-item"></div>
+          <div className="avatar search__nav-item"></div>
+        </nav>
+      </header>
+      <div className="search__details__stories">
+        <h2>Top Stories</h2>
+        <div className="search__details__story">
+          <img src="/shakes-1.jpg" alt="shakes" />
+          <div className="search__details__story-body">
+            <a href="#">
+              Harper Beckham made a surprise stage appearance with one of her
+              heroes – see photo
+            </a>
+            <p>Simply flying</p>
+            <span>13 hours ago</span>
+          </div>
+        </div>
+        <div className="search__details__story">
+          <img src="/shakes-1.jpg" alt="shakes" />
+          <div className="search__details__story-body">
+            <a href="#">
+              Harper Beckham made a surprise stage appearance with one of her
+              heroes – see photo
+            </a>
+            <p>Simply flying</p>
+            <span>13 hours ago</span>
+          </div>
+        </div>
+        <div className="search__details__story">
+          <img src="/shakes-1.jpg" alt="shakes" />
+          <div className="search__details__story-body">
+            <a href="#">
+              Harper Beckham made a surprise stage appearance with one of her
+              heroes – see photo
+            </a>
+            <p>Simply flying</p>
+            <span>13 hours ago</span>
+          </div>
+        </div>
+        {/* <p>More for hello</p> */}
+      </div>
+      <div className="container search__details__results">
+        <ThumbNail />
+        <SearchCard />
+      </div>
+    </div>
+  );
+};
+
+export default SearchPage;
